@@ -1,7 +1,7 @@
 # 🌐 net-lab
 
 ## 📖 About
-This repository documents my hands-on network device configurations as I build and test real setups from the ground up. The goal is to keep a clean, organized record of every topology, config snippet, and test result — both as a personal reference and as a growing portfolio of practical networking work.
+This repository documents my hands-on network device configurations as I build and test real setups from the ground up. The goal is to keep a clean, organized record of every topology, config snippet, and test result both as a personal reference and as a growing portfolio of practical networking work.
 
 ## 🧪 Lab Environment
  
