@@ -165,7 +165,7 @@ Net-SW2(config)#exit
 Net-SW2#write memory
 ```
 
-![alt text](image-6.png)
+
 
 ### Test Remote Access for SSH
 
