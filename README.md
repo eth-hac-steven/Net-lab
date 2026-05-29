@@ -7,7 +7,8 @@ This repository documents my hands-on network device configurations as I build a
  
 - **Simulator / Tool:** *(e.g., Cisco Packet Tracer )*
 - **Devices:** *(e.g., Cisco 2960 switches,Cisco 3650 switches, Cisco 1941 routers, PC, Laptops ....)*
-- **Network block:** 192.168.10.0/24 255.255.255.0 
+- **Network block:** *192.168.10.0/24,192.168.20.0/24 255.255.255.0*
+-**Wifi Devices:** Home-wifi home-is-sweet-with-wifi
 
 ---
 
