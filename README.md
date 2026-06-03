@@ -3,7 +3,7 @@
 ## 📖 About
 This repository documents my hands-on network device configurations as I build and test real setups from the ground up. The goal is to keep a clean, organized record of every topology, config snippet, and lesson learned along the way.
 
-📊 **View the [Slideshow](slideshow.html)** - Check out visual documentation of labs and topologies
+
 
 ## 🧪 Lab Environment
  
