@@ -36,18 +36,23 @@ workspace:
 ● Click on the switch to open the configuration window.
 ● Select the CLI (Command Line Interface) tab.
 Create VLANs:
-● Enter global configuration mode
+● Enter global configuration mode and adding a hostname
+```
 Switch>enable
 Switch#configure terminal
 Switch(config)#
+Switch(config)#hostname Net-SW
+```
 
-Create VLANs for each subnet:
-Switch(config)#vlan 10
-Switch(config-vlan)#name Sales
-Switch(config-vlan)#vlan 20
-Switch(config-vlan)#name IT
-Switch(config-vlan)#vlan 30
-Switch(config-vlan)#name HR
-
+● Create VLANs for each subnet:
+```
+Net-SW(config)#vlan 10
+Net-SW(config-vlan)#name Staff
+Net-SW(config-vlan)#vlan 20
+Net-SW(config-vlan)#name Students 
+Net-SW(config-vlan)#vlan 30
+Net-SW(config-vlan)#name Guest
+Net-SW(config-vlan)#do wr
+```
 
 
