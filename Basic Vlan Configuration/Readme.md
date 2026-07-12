@@ -37,6 +37,8 @@ workspace:
 - Select Terminal.
 - click on OK
   
+![Terminal](/Basic%20Vlan%20Configuration/images/Terminal.png)
+
 Create VLANs:
 ● Enter global configuration mode and adding a hostname
 ```
@@ -60,6 +62,8 @@ Net-SW(config-vlan)#name IT_MGMT
 Net-SW(config-vlan)#do wr
 ```
 
+![Creating VLANS](/Basic%20Vlan%20Configuration/images/creating%20vlans.png)
+
 Assign VLANs to Ports:
 ● Assign PC ports to respective VLANs
 ```
@@ -80,6 +84,8 @@ Net-SW(config-if)#switchport mode access
 Net-SW(config-if)#switchport access vlan 30
 Net-SW(config-if)#exit
 ```
+![Assigning-ports-to-the-VLANS](/Basic%20Vlan%20Configuration/images/assigning%20interface%20ports.png)
+
 Configure Trunk Port for Router:
 Configure the port connected to the router as a trunk port:
 ```
@@ -88,7 +94,9 @@ Net-SW(config-if)#switchport mode trunk
 Net-SW(config-if)#switchport trunk allowed vlan all
 ```
 
-Step 4: Configure the Router for Inter-VLAN Routing
+![Assigning-a-Trunk port](/Basic%20Vlan%20Configuration/images/configuring%20trunk%20port.png)
+
+### Step 4: Configure the Router for Inter-VLAN Routing
 Access the Router:
 - Click on the router to open the configuration window. -
 - Go to the CLI tab and enter configuration mode
@@ -102,24 +110,22 @@ Router(config)#
 ```
 Router(config)#interface GigabitEthernet0/0.10
 Router(config-if)#encapsulation dot1Q 10
-Router(config-if)#ip address 192.168.10.1
-255.255.255.0
+Router(config-if)#ip address 192.168.10.1 255.255.255.0
 Router(config-if)#exit
 Router(config)#interface GigabitEthernet0/0.20
 Router(config-if)#encapsulation dot1Q 20
-Router(config-if)#ip address 192.168.20.1
-255.255.255.0
+Router(config-if)#ip address 192.168.20.1 255.255.255.0
 Router(config-if)#exit
 Router(config)#interface GigabitEthernet0/0.30
 Router(config-if)#encapsulation dot1Q 30
-Router(config-if)#ip address 192.168.30.1
-255.255.255.0
+Router(config-if)#ip address 192.168.30.1 255.255.255.0
 Router(config-if)#exit
 Router(config)#interface GigabitEthernet0/0.40
 Router(config-if)#encapsulation dot1Q 40
-Router(config-if)#ip address 192.168.40.1
-255.255.255.0
+Router(config-if)#ip address 192.168.40.1 255.255.255.0
 ```
+![sub-interfaces](/Basic%20Vlan%20Configuration/images/intervlan%20all.png)
+
 - Enable the interface:
 ```
 Router(config)#interface GigabitEthernet0/0
@@ -128,10 +134,8 @@ Save the configuration:
 Router(config-if)# do wr
 ```
 
-- Save the configuration:
-```
-Router(config-if)# do wr
-```
+![enabling-G0/1](/Basic%20Vlan%20Configuration/images/enabling%20router%20gi0%20interface.png)
+
 
 - Step 5: Configure the DHCP Server
 1. Access the Server:
@@ -141,6 +145,9 @@ Router(config-if)# do wr
     - Select FastEthernet0 on the left.
     -  Set the IP Address to 192.168.40.2 and Subnet Mask to 255.255.255.0.
     -  Set the Default Gateway to 192.168.40.1.
+
+![DHCP setting](/Basic%20Vlan%20Configuration/images/dhcp-static%20IP.png)
+
 3. Enable DHCP on the Server:
   - Go to Services > DHCP.
   - Enable the DHCP service by toggling it to “On.”
@@ -164,15 +171,19 @@ Router(config-if)# do wr
       -  Default Gateway: 192.168.30.1
       -   Start IP Address: 192.168.30.10
       -   Subnet Mask: 255.255.255.0
-      -   Maximum Users: 20
+      -   Maximum Users: 200
   - Click Add after each pool to save the settings.
-Step 6: Configure DHCP Relay on the Router
+  - optional for IT_MGMT zone
+
+![DHCP zone setting](/Basic%20Vlan%20Configuration/images/DHCP%20server%20setting%20for%20each%20zone.png)
+
+### Step 6: Configure DHCP Relay on the Router
 - Go back to the Router CLI and enter global configuration mode:
 ```
-router>enable
-router>conf t
+Router>enable
+Router>conf t
 ```
-Configure IP Helper on each VLAN sub-interface:
+configure IP Helper on each VLAN sub-interface:
 For VLAN 20:
 ```
 Router(config)#interface GigabitEthernet0/0.20
@@ -197,15 +208,22 @@ Router(config)#interface GigabitEthernet0/0.40
 Router(config-subif)#ip helper-address 192.168.40.2
 Router(config-subif)#exit
 ```
-Step 7: Configure PCs to Obtain IP Addresses via DHCP
-Configure Each PC:
+
+![intervlan-routing-1](/Basic%20Vlan%20Configuration/images/intervlan-routing.png)
+
+### Step 7: Configure PCs to Obtain IP Addresses via DHCP Configure Each PC:
 -  Click on each PC to open its configuration.
 -  Go to the Desktop tab > IP Configuration.
 -  Select DHCP. Each PC should automatically receive an IP address from the correct subnet range based on its VLAN.
+
+![DHCP request](/Basic%20Vlan%20Configuration/images/dhcp%20request%20successful.png)
+
    Verify Configuration:
 -  From the Command Prompt on each PC, use the ipconfig command to
-verify the assigned IP address.
+● verify the assigned IP address.
 -  Test connectivity between PCs in different VLANs using ping (e.g., ping
 192.168.20.10 from a PC in VLAN 10).
+
+![Verification](/Basic%20Vlan%20Configuration/images/verification.png)
 
 ____
