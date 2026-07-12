@@ -9,7 +9,7 @@ obtain IP addresses and other network configuration details from a DHCP server.
 
 ### Lab Setup
 
-![lab-setup](image.png)
+![lab-setup](/Basic%20Vlan%20Configuration/images/image.png)
 
 ### Step-by-Step Instructions
 #### Step 1: Add Devices to the Workspace
