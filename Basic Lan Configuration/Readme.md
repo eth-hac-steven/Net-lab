@@ -33,13 +33,13 @@ To simulate a small office network with Multiple end user devices, all connected
   2.  power off the laptop 
   3.  Drag and drop the ethernet port out of the socket
   4.  Drop and drop the Wifi adapter into the socket
-  5.  Power on th
+  5.  Power on the Laptop
 
 ![connection wireless-laptop](image-7.png)
 
 ### Step 3: Configure the Router
 
-1. Click on Router-0, go to the CLI tab.
+1. Click on your Router, go to the CLI tab.
 2. Configure the Router’s GigabitEthernet 0/0 interface
 ```
 Would you like to enter the initial configuration dialog? [yes/no]: no
@@ -91,41 +91,32 @@ Router# write memory
 
 ### Step 4: Configure the Wireless Router
 
-1. Click on WirelessRouter-0, go to the GUI tab.
-2. Set the Internet IP Address:
-- Select DHCP for the Internet Connection Type (this allows the Wireless Router to obtain an IP from Router-0).
+1. Click on Wireless Router, go to the GUI tab.
+2. set the internet type to "Wireless AP"
 
-![setting and ip address](image-4.png)
-
+![Ap_setting](AP%20setting.png)
+   
 3. Go to the Wireless section in the config tab:
 - Change the SSID to something like "Home-WiFi".
 - WPA2-PSK security and create a passphrase.
 
 ![SSID setting](image-5.png)
 
-4. Go to the LAN settings and configure:
-- IP Address: 192.168.2.1
-- Subnet Mask: 255.255.255.0
-
-![LAN Settings](image-6.png)
-
-5. Enable the DHCP server to provide IP addresses on the 192.168.2.0/24 network.
-
 ### Step 5: Configure the Wired End Devices
-1. Click on PC-0, then go to the Desktop tab and open the IP Configuration window.
+1. Click on any PC, then go to the Desktop tab and open the IP Configuration window.
 - Set the IP configuration to DHCP (this allows the PC to receive an IP
 address from the router).
 
 ![Requesting DHCP](image-8.png)
 
-2. Repeat this step for the number of  wired device on your network.
+2. Repeat this step for the number of wired device on your network.
 
 ### For Wireless Device
 
-1. Click on Laptop-0, then go to the Desktop tab and open the IP Configuration
+1. Click on  any Laptop, then go to the Desktop tab and open the IP Configuration
 window.
 - Select DHCP for automatic IP addressing.
-2. Go to the Laptop-0's Desktop tab, select PC Wireless, and 
+2. Go to Any Laptops Desktop tab, select PC Wireless, and 
  1. connect 
  2. refresh 
  3. select the wifi name
@@ -137,7 +128,7 @@ window.
 
 - Repeat this step for the number of wireless laptop on your network.
 
-3. Click on Smartphone1
+3. Click on (IF any)Smartphone
 
 - 2. Go to the smartphones config tab, select  Wireless0, and 
  1. select WPA2-PSK
@@ -151,9 +142,12 @@ window.
 ### For Printer
 
 - Step 1: Choose a Static IP Address
+  
 The printer should have an IP in the same network as the other wired devices but outside the DHCP pool to avoid conflicts.
-For example, if your DHCP pool is from 192.168.10.2 to 192.168.10.100, you can assign the printer an IP like 192.168.10.101.
+For example, if your DHCP pool is from 192.168.10.10 to 192.168.10.100, you can assign the printer an IP like 192.168.10.9.
+
 - Step 2: Set the Printer to Use a Static IP
+
 In the IP Configuration window, uncheck the box that says DHCP to disable dynamic IP assignment.
 
 Manually enter the following details:
@@ -173,16 +167,23 @@ Verify the assigned IP address (should be in the range of 192.168.10.x).
 Ping the router (ping 192.168.10.1) to check the connection.
 
 ![ping-test](image-12.png)
-2. From Laptop3, open the Command Prompt, type:
+
+2. From any Laptop in the wireless segment, open the Command Prompt, type:
+```
 Ipconfig
-Ensure the IP is in the 192.168.20.x range.
-Ping the router (ping 192.168.20.1) to check the wireless connection.
+```
+Ensure the IP is in the 192.168.11.x range.
+Ping the router (ping 192.168.11.1) to check the wireless connection.
+
 3. Test Connectivity to the Printer
+   
 Click on any of the PCs (e.g., PC-0), go to the Desktop tab, and open the
 Command Prompt.
-Type the following command to ping the printer’s static IP address
-ping 192.168.10.240
-○ If everything is configured correctly, you should receive reply messages
+ping the printer’s static IP address
+```
+ping 192.168.10.x
+```
+ If everything is configured correctly, you should receive reply messages
 confirming that the PC can communicate with the printer
 
 ----
