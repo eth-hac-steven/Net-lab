@@ -94,7 +94,7 @@ Router# write memory
 1. Click on Wireless Router, go to the GUI tab.
 2. set the internet type to "Wireless AP"
 
-![Ap_setting](AP%20setting.png)
+![Ap_setting](AP%20settings.png)
    
 3. Go to the Wireless section in the config tab:
 - Change the SSID to something like "Home-WiFi".
