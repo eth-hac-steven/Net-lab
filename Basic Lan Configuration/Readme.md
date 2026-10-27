@@ -1,10 +1,10 @@
 # Basic Lan configuration 
 
 ### Objective 
-To simulate a small office network with Multiple end user devices, all connected to the same LAN. The router will provide DHCP to all devices, and testing the connectivity between them.
+To simulate a small office network with Multiple end user devices, all connected to the same LAN. The router will acts as the DHCP server for all devices, and testing the connectivity between them.
 
 ### Software Requirements:
-- CISCO Packet Trace
+- CISCO Packet Tracer
 
 ### lab Setup
 
@@ -15,9 +15,9 @@ To simulate a small office network with Multiple end user devices, all connected
 1. Open Cisco Packet Tracer.
 2. From the End Devices section, drag and drop the multiple into the workspace.
 3. From the Network Devices section, drag and drop:
-- 1 Router (Router-0)
-- 1 Switch (Switch-0)
-- 1 Wireless Router (WirelessRouter-0)
+- 1 Router (Router-0)Device Version: 2911 
+- 1 Switch (Switch-0)Device Version: 2960
+- 1 Wireless Router (WirelessRouter-0) Device Version: Home Router-PT-AC
 
 ### Step 2: Physically Connect Devices
 
@@ -28,12 +28,12 @@ To simulate a small office network with Multiple end user devices, all connected
 4. Connect the Router to the Switch using a straight-through cable. 
 
 #### Wireless Connections
-1. Connect WirelessRouter-0 to the Router using a crossover cable to connect.
+1. Connect WirelessRouter-0 to the Router on GigabitEthernet 0/1.
 2. For the wireless laptop 
-  2.  power off the laptop 
-  3.  Drag and drop the ethernet port out of the socket
-  4.  Drop and drop the Wifi adapter into the socket
-  5.  Power on the Laptop
+  1.  power off the laptop 
+  2.  Drag and drop the ethernet port out of the socket
+  3.  Drop and drop the Wifi adapter into the socket
+  4.  Power on the Laptop
 
 ![connection wireless-laptop](image-7.png)
 
@@ -97,13 +97,24 @@ Router# write memory
 ![Ap_setting](AP%20settings.png)
    
 3. Go to the Wireless section in the config tab:
+- Click on Wireless 2.4G
 - Change the SSID to something like "Home-WiFi".
 - WPA2-PSK security and create a passphrase.
 
-![SSID setting](image-5.png)
+![SSID setting](2026-10-27_16-32.png)
+
+- At this point the smartphone will just connect back to the open frequencis so we will have to disable them or apply security for them.
+
+- Click on the GUI tab -> Wireless
+- Disable the other Frequencies
+- use the dropdown arrow 
+- click on disable
+
+![freq-disable](2026-10-27_16-40.png)
 
 ### Step 5: Configure the Wired End Devices
 1. Click on any PC, then go to the Desktop tab and open the IP Configuration window.
+
 - Set the IP configuration to DHCP (this allows the PC to receive an IP
 address from the router).
 
@@ -151,13 +162,14 @@ For example, if your DHCP pool is from 192.168.10.10 to 192.168.10.100, you can 
 In the IP Configuration window, uncheck the box that says DHCP to disable dynamic IP assignment.
 
 Manually enter the following details:
-● IP Address: Set this to the chosen static IP
-● Subnet Mask: This will typically be 255.255.255.0
+-  IP Address: Set this to the chosen static IP
+-  Subnet Mask: This will typically be 255.255.255.0
+-  Default Gateway: Set this to the IP of the router, which is 192.168.10.1 
 
 ![alt text](image-11.png)
 
-● Default Gateway: Set this to the IP of the router, which is 192.168.10.1 
-● DNS Server:  8.8.8.8
+
+
 
 ### Test the Setup
 
