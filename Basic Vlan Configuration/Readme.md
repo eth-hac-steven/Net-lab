@@ -81,7 +81,7 @@ Net-SW(config-if)#switchport access vlan 30
 Net-SW(config-if)#exit
 Net-SW(config)#interface range FastEthernet 0/19-24
 Net-SW(config-if)#switchport mode access
-Net-SW(config-if)#switchport access vlan 30
+Net-SW(config-if)#switchport access vlan 40
 Net-SW(config-if)#exit
 ```
 ![Assigning-ports-to-the-VLANS](/Basic%20Vlan%20Configuration/images/assigning%20interface%20ports.png)
